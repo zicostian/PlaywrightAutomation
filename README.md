@@ -1,6 +1,6 @@
 # PlaywrightAutomation
 
-This repository contains a Playwright test automation project written in TypeScript. It demonstrates multi-browser parallel runs, use of `async`/`await`, and KEYS assertions with Playwright SUCH AS `expect` API.
+This repository contains a Playwright test automation project written in TypeScript. It demonstrates multi-browser parallel runs, use of `async`/`await`, and key assertions with Playwright such as `expect` API.
 
 ## Setup
 
