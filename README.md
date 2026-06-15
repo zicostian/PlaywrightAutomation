@@ -36,7 +36,7 @@ npx playwright test
 Run a specific test file:
 
 ```bash
-npx playwright test tests/my_first_test.spec.ts
+npx playwright test tests/google_page_test.spec.ts
 ```
 
 Run tests in headed mode:
