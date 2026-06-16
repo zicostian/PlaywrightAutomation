@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test';
 
+test.describe('Smoke Test', () => {
+
 test.beforeEach(async ({ page }) => {
   // Code generated using Playwright Codegen test recorder feature
   await page.goto('https://www.saucedemo.com/');
@@ -32,4 +34,6 @@ test('Logout Flow', async ({ page }) => {
   await page.getByRole('button', { name: 'Open Menu' }).click();
   await page.locator('[data-test="logout-sidebar-link"]').click();
   await expect(page.getByText('Swag Labs')).toBeVisible();
+});
+
 });
