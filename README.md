@@ -2,6 +2,8 @@
 
 This repository contains a Playwright test automation project written in TypeScript. It demonstrates multi-browser parallel runs, use of `async`/`await`, and key assertions with Playwright such as `expect` API.
 
+It also showcases video recording capabilities and grouped test cases for better reporting and organization.
+
 ## Setup
 
 ### 1. Prerequisites
@@ -52,16 +54,28 @@ npx playwright test --headed
 - Assertions use `expect` from `@playwright/test`.
 - The Playwright configuration enables `fullyParallel: true`, so tests can execute in parallel across files.
 
-## Example test pattern
+## Example test pattern (E.g: Marketplace Checkout)
 
 A typical test in this project looks like:
 
 ```ts
 import { test, expect } from '@playwright/test';
 
-test('Google page title verification', async ({ page }) => {
-  await page.goto('https://google.com');
-  await expect(page).toHaveTitle(/Google/);
+test('Add to Cart and Checkout Flow', async ({ page }) => {  
+  await page.locator('[data-test="add-to-cart-sauce-labs-backpack"]').click();
+  await page.locator('[data-test="shopping-cart-link"]').click();
+  await expect(page.locator('[data-test="title"]')).toContainText('Your Cart');
+  await page.locator('[data-test="checkout"]').click();
+  await page.locator('[data-test="firstName"]').click();
+  await page.locator('[data-test="firstName"]').fill('Zico');
+  await page.locator('[data-test="firstName"]').press('Tab');
+  await page.locator('[data-test="lastName"]').fill('Test');
+  await page.locator('[data-test="lastName"]').press('Tab');
+  await page.locator('[data-test="postalCode"]').fill('16421');
+  await page.locator('[data-test="continue"]').click();
+  await expect(page.locator('[data-test="title"]')).toContainText('Checkout: Overview');
+  await page.locator('[data-test="finish"]').click();
+  await expect(page.locator('[data-test="complete-header"]')).toContainText('Thank you for your order!');
 });
 ```
 
