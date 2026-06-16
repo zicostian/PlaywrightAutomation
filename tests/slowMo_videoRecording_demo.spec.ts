@@ -3,7 +3,6 @@ import { test, expect, chromium } from '@playwright/test';
 test('Slow Motion and Video Recording demo', async () => {
   // Applying slow motion and video recording options within the test itself
   const browser = await chromium.launch({
-    headless: false,
     slowMo: 1000, // Slow down actions by 1 second
   });
   const context = await browser.newContext({
