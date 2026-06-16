@@ -35,10 +35,6 @@ export default defineConfig({
     // baseURL: 'http://localhost:3000',
     /* Run test in maximized window */
     viewport: null,
-    launchOptions: {
-      // 1
-      args: ["--start-maximized", '--window-size=1920,1080'],
-    },
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },
@@ -47,12 +43,18 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        ...devices['Desktop Chrome'],
+        launchOptions: { args: ['--start-maximized', '--window-size=1920,1080'] },
+      },
     },
 
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      use: {
+        ...devices['Desktop Firefox'],
+        launchOptions: { args: ['--width=1920', '--height=1080'] },
+      },
     },
 
     {
