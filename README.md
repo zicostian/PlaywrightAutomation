@@ -83,3 +83,7 @@ test('Add to Cart and Checkout Flow', async ({ page }) => {
 
 - The repository currently uses TypeScript and Playwright with `type: commonjs` in `package.json`.
 - To add more tests, place them under the `tests/` directory and follow the Playwright test pattern.
+
+## Author
+
+[Zico Agustian Rusdy](https://linkedin.com/in/zicostian)
