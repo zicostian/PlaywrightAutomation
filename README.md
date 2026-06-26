@@ -89,5 +89,3 @@ test('Add to Cart and Checkout Flow', async ({ page }) => {
 ## Author
 
 [Zico Agustian Rusdy](https://linkedin.com/in/zicostian)
-
-<iframe src="https://github.com/sponsors/zicostian/card" title="Sponsor zicostian" height="225" width="600" style="border: 0;"></iframe>
